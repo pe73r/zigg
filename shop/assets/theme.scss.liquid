@@ -17,6 +17,9 @@ $border-color    : {{settings.background | color_mix: settings.text_color, 85}};
 $button-background: {{settings.button_background}};
 $button-text-color: {{settings.button_text_color}};
 
+$button-secondary-background: {{settings.button_secondary_background}};
+$button-secondary-text: {{settings.button_secondary_text_color}};
+
 $header-background       : {{settings.header_background}};
 $header-heading-color    : {{settings.header_heading_color}};
 $header-light-text-color : {{settings.header_light_color}};
@@ -195,6 +198,7 @@ $heading-font-family : {{settings.heading_font.family}}, {{ settings.heading_fon
 $heading-font-weight : {{settings.heading_font.weight}};
 $heading-font-style  : {{settings.heading_font.style}};
 $heading-font-size   : {{settings.heading_size}};
+
 
 $text-font-family : {{settings.text_font.family}}, {{ settings.text_font.fallback_families }};
 $text-font-weight : {{settings.text_font.weight}};
@@ -1751,7 +1755,7 @@ body {
 }
 
 .Heading {
-  font-family: $heading-font-family;
+  font-family: $heading-font-family ;
   font-weight: $heading-font-weight;
   font-style: $heading-font-style;
   color: $heading-color;
@@ -1978,7 +1982,7 @@ body {
     }
   } @else {
     .u-h1 {
-      font-size: 24px;
+      font-size: 30px;
     }
 
     .u-h2 {
@@ -2037,7 +2041,7 @@ body {
   display: inline-block;
   padding: 14px 28px;
   line-height: normal;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-radius: 5px;
   text-align: center;
   letter-spacing: 0.2em;
@@ -2106,11 +2110,11 @@ body {
 }
 
 .Button--secondary {
-  color: $text-color-light;
-  border: 1px solid rgba($text-color-light, 0.2);
+  color: $button-secondary-text;
+  border: 1px solid rgba($button-secondary-background, 0.2);
+  background-color: $button-secondary-background;
 
   &::before {
-    background-color: $button-background;
     transform-origin: right center;
     transform: scale(0, 1);
   }
@@ -2118,8 +2122,8 @@ body {
   @if $show-button-transition {
     @media (-moz-touch-enabled: 0), (hover: hover) {
       &:not([disabled]):hover {
-        color: $button-text-color;
-        border-color: $button-background;
+        color: $button-secondary-text;
+        border-color: $button-secondary-background;
       }
 
       &:not([disabled]):hover::before {
@@ -5930,7 +5934,10 @@ select::-ms-expand {
 
 @include av-mq('tablet-and-up') {
   .SectionHeader__Heading--emphasize {
-    font-size: to-size(22px);
+    font-size: to-size(40px);
+    max-width: 600px;
+    line-height: 1.2em;
+    font-family: $font-family-posterama;
   }
 }
 
@@ -11368,7 +11375,7 @@ $vertical-spacing-two-products-per-row  : 0px;
 
 @include av-mq('lap-and-up') {
   .Slideshow__Content {
-    padding: 0 70px;
+    padding: 0 120px;
   }
 }
 /**
@@ -11920,6 +11927,15 @@ $text_related_product_color : {{ settings.text_related_product_color }};
   color: $text_related_product_color;
 }
 
+.text_related_product--button {
+  width: 95%;
+  margin: 50px auto;
+   a{
+     width: 100%;
+   }
+}
+
+
 @include av-mq('pocket') {
   .grid-overflow-wrapper {
     overflow: hidden;
@@ -11945,6 +11961,10 @@ $text_related_product_color : {{ settings.text_related_product_color }};
 
   .form_related_product {
     padding: 0 2rem;
+  }
+
+  .text_related_product--button {
+    width: 100%;
   }
 }
 
@@ -12132,4 +12152,12 @@ $text_faq_color : {{ settings.text_faq_color }};
     width: 100%;
     white-space: normal;
   }
+}
+
+/** section text with image PEDRO :)   */
+
+$text-image-background-color : {{ settings.text_image_background }}; 
+
+.TextImageBackground{
+  background-color: $text-image-background-color;
 }

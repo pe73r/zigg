@@ -64,5 +64,10 @@
       {% endfor %}
       </div>
     </div>
+    {% if section.settings.button-text != blank %}
+      <div class="text_related_product--button">
+        <a class="Button Button--secondary" href="{{ section.settings.url }}">{{ section.settings.button-text }}</a> 
+      </div>
+    {% endif %}
   </div>
 </section>

@@ -61,6 +61,10 @@
         "content": "Buttons"
       },
       {
+        "type": "paragraph",
+        "content": "button-primary"
+      },
+      {
         "type": "color",
         "id": "button_background",
         "label": "Background",
@@ -69,6 +73,22 @@
       {
         "type": "color",
         "id": "button_text_color",
+        "label": "Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "paragraph",
+        "content": "button-secondary"
+      },
+      {
+        "type": "color",
+        "id": "button_secondary_background",
+        "label": "Background",
+        "default": "#eaa858"
+      },
+      {
+        "type": "color",
+        "id": "button_secondary_text_color",
         "label": "Text",
         "default": "#ffffff"
       },
@@ -214,6 +234,16 @@
         "id": "text_related_product_color",
         "label": "Text color Related Product",
         "default": "#000000"
+      },
+      {
+        "type": "header",
+        "content": "Section Text image" 
+      },
+      {
+        "type": "color",
+        "id": "text_image_background",
+        "label": "Text image background",
+        "default": "#5e8a85"
       },
       {
         "type": "header",
