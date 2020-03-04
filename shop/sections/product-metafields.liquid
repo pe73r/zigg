@@ -1,0 +1,19 @@
+{%- if product.metafields.product_details != blank -%}
+  <div class="metafields__product" data-tabs>
+    <div class="grid-overflow-wrapper">
+      <div class="metafields__product--links">
+        {%- for field in product.metafields.product_details -%}
+          <button class="metafields__product--link" data-tabs-link="{{ field | first }}">{{ field | first | replace: "_", " "}}</button>
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="metafields__product--container">
+      {%- for field in product.metafields.product_details -%}
+        <div data-tabs-content="{{ field | first }}" class="metafields__product--detail">
+          <h2 class="heading metafields__product--title">{{ field | first | replace: "_", " "}}</h2>
+          {{ field | last }}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}

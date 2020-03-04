@@ -1,0 +1,59 @@
+{% render 'faq' %}
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+  {
+    "type": "checkbox",
+    "id": "faq_title_align_center",
+    "label": "Align title center",
+    "default": false
+  },
+  {
+    "type": "text",
+    "id": "faq_title_typo_1",
+    "label": "Title typo 1"
+  },
+  {
+    "type": "text",
+    "id": "faq_title_typo_2",
+    "label": "Title typo 2"
+  },
+  {
+    "type": "text",
+    "id": "faq_title_CTA",
+    "label": "Title CTA"
+  },
+  {
+    "type": "url",
+    "id": "faq_url_CTA",
+    "label": "URL CTA"
+  }
+  ],
+  "blocks": [
+  {
+    "type": "text",
+    "name": "Question/Réponse",
+    "settings": [
+      {
+        "type": "text",
+        "id": "faq_question",
+        "label": "Question"
+      },
+      {
+        "type": "textarea",
+        "id": "faq_answer",
+        "label": "Réponse"
+      }
+    ]
+  }
+  ],
+  "presets": [
+    {
+    	"name": "FAQ",
+    	"category": "Text"
+    }
+  ]
+}
+{% endschema %}

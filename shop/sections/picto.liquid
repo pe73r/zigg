@@ -1,0 +1,72 @@
+{% include 'picto' %}
+
+{% schema %}
+  {
+    "name": "Section picto",
+    "settings": [
+    {
+			"type": "range",
+			"id": "picto_per_line_desktop",
+			"min": 2,
+			"max": 6,
+			"step": 1,
+			"label": "Picto per line desktop",
+			"default": 4
+		},
+		{
+			"type": "range",
+			"id": "picto_per_line_mobile",
+			"min": 1,
+			"max": 3,
+			"step": 1,
+			"label": "Picto per line mobile",
+			"default": 1
+		},
+    {
+      "type": "range",
+      "id": "picto_max_width",
+      "min": 50,
+      "max": 200,
+      "step": 25,
+      "unit": "px",
+      "label": "Picto width",
+      "default": 100
+    }
+	],
+  "blocks": [
+		{
+			"type": "image",
+			"name": "Picto",
+      "limit": 6,
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Picto image"
+				},
+        {
+					"type": "url",
+					"id": "image_svg",
+					"label": "Picto URL SVG"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title"
+				},
+				{
+					"type": "textarea",
+					"id": "text",
+					"label": "Text"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Picto",
+			"category": "Image"
+		}
+	]
+}
+{% endschema %}

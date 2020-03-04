@@ -1,0 +1,68 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="related-product">
+  <div class="related-product__container">
+    <div class="section__header {% if section.settings.related-product_title_align_center %}section__header--center{% endif %}">
+      {% if section.settings.related-product_title_typo_1 != blank %}
+      <div class="section__title-relative">
+        <h2 class="heading section__title--1 title_1_related_product {% if section.settings.related-product_title_align_center %}section__header--center{% endif %}">{{ section.settings.related-product_title_typo_1 | escape }}</h2>
+      </div>
+      {% endif %}
+
+      {% if section.settings.related-product_title_typo_2 != blank %}
+        <h3 class="heading section__title--2 title_2_related_product">{{ section.settings.related-product_title_typo_2 | escape }}</h3>
+      {% endif %}
+    </div>
+
+    {%- assign collection = collections[section.settings.related-product_collection] -%}
+    <div class="grid-overflow-wrapper">
+      <div class="grid grid-related__product">
+      {% for product in collection.products limit: section.settings.related-product_products_display %}
+      <div class="grid__cell grid__cell-related__product grid--center 1/{{ section.settings.related-product_products_per_line_desktop }}--lap-and-up 1/{{ section.settings.related-product_products_per_line_mobile }}--pocket">
+        <a href="{{ product.url | within: collection }}">
+
+          {% if product.featured_image != blank %}
+            {{ product.featured_image.src | img_url: '480x480' | img_tag: product.title }}
+          {% endif %}
+
+          <p class="section__texte text_related_product--title">{{ product.title }}</p>
+          <p class="section__texte text_related_product--description">{{ product.metafields.global.subtitle }}</p>
+        </a>
+
+        <form method="post" action="/cart/add" class="form_related_product">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+          <input min="1" type="hidden" id="quantity" name="quantity" value="1"/>
+          <button
+            type="submit"
+            name="add"
+            class="Button Button--invert button_related_product"
+            data-add-to-cart
+            {% unless product.available %}disabled="disabled"{% endunless %}>
+              <span data-add-to-cart-text>
+                {% if product.available %}
+                  {{ 'product.form.add_to_cart' | t }} | {{ product.price | money }}
+                {% else %}
+                  {{ 'product.form.sold_out' | t }}
+                {% endif %}
+              </span>
+          </button>
+        </form>
+      </div>
+      {% else %}
+      <div class="grid__cell grid--center 1/{{ section.settings.related-product_products_per_line_desktop }}--lap-and-up">
+        {% for i in (1..6) %}
+          <a href="#">
+            {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+            {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+
+            <p>
+              {{ 'homepage.onboarding.product_title' | t }}
+            </p>
+          </a>
+
+          <p>{{ 1999 | money }}</p>
+        {% endfor %}
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="faq">
+  <div class="faq__container">
+    <div class="section__header {% if section.settings.faq_title_align_center %}section__header--center{% endif %}">
+      {% if section.settings.faq_title_typo_1 != blank %}
+      <div class="section__title-relative">
+        <h2 class="heading section__title--1 title_1_faq {% if section.settings.faq_title_align_center %}section__header--center{% endif %}">{{ section.settings.faq_title_typo_1 | escape }}</h2>
+      </div>
+      {% endif %}
+
+      {% if section.settings.faq_title_typo_2 != blank %}
+        <h3 class="heading section__title--2 title_2_faq">{{ section.settings.faq_title_typo_2 | escape }}</h3>
+      {% endif %}
+    </div>
+    <div class="faq__content">
+      {% for block in section.blocks %}
+        <div class="faq__content--collapse">
+          <button data-faq-collapse class="faq__collapse--link text_faq--question">{{block.settings.faq_question}}</button>
+          <div class="faq__collapse--content">
+            <p class="text_faq--anwser">{{block.settings.faq_answer}}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% if section.settings.faq_title_CTA != blank %}
+      <div class="faq__cta">
+        <a class="Button Button--primary" href="{{section.settings.faq_url_CTA}}">{{section.settings.faq_title_CTA}}</a>
+      </div>
+    {% endif %}
+  </div>
+</section>

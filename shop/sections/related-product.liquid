@@ -1,0 +1,54 @@
+{% include 'related-product' %}
+
+{% schema %}
+  {
+    "name": "Section related-product",
+    "settings": [
+    {
+      "type": "checkbox",
+      "id": "related-product_title_align_center",
+      "label": "Align title center",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "related-product_title_typo_1",
+      "label": "Title typo 1"
+    },
+    {
+      "type": "text",
+      "id": "related-product_title_typo_2",
+      "label": "Title typo 2"
+    },
+    {
+			"type": "range",
+			"id": "related-product_products_per_line_desktop",
+			"min": 2,
+			"max": 6,
+			"step": 1,
+			"label": "Products per line desktop",
+			"default": 3
+		},
+    {
+			"type": "range",
+			"id": "related-product_products_display",
+			"min": 2,
+			"max": 6,
+			"step": 1,
+			"label": "Products displayed",
+			"default": 3
+		},
+    {
+      "id": "related-product_collection",
+      "type": "collection",
+      "label": "Collection"
+    }
+	],
+	"presets": [
+		{
+			"name": "Related Product",
+			"category": "Collection"
+		}
+	]
+}
+{% endschema %}
