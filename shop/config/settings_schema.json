@@ -237,13 +237,31 @@
       },
       {
         "type": "header",
-        "content": "Section Text image" 
+        "content": "Section Text image"
       },
       {
         "type": "color",
         "id": "text_image_background",
         "label": "Text image background",
         "default": "#5e8a85"
+      },
+      {
+        "type": "color",
+        "id": "text_image_subtitle_color",
+        "label": "Text image subtitle",
+        "default": "#fbf5e6"
+      },
+      {
+        "type": "color",
+        "id": "text_image_title_color",
+        "label": "Text image title",
+        "default": "#fbf5e6"
+      },
+      {
+        "type": "color",
+        "id": "text_image_text_color",
+        "label": "Text image text",
+        "default": "#fbf5e6"
       },
       {
         "type": "header",

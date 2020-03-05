@@ -45,6 +45,9 @@ $secondary-elements-border-color     : rgba($secondary-elements-text-color, 0.25
 
 $product-sale-price-color: {{settings.product_on_sale_color}};
 
+$ziggy-yellow: #eaa858;
+$ziggy-pink: #f0ab9c;
+
 /* Typography */
 
 @font-face {
@@ -1883,11 +1886,11 @@ body {
   }
 } @else {
   .u-h1 {
-    font-size: 24px;
+    font-size: 45px;
   }
 
   .u-h2 {
-    font-size: 22px;
+    font-size: 30px;
   }
 
   .u-h3 {
@@ -1982,15 +1985,15 @@ body {
     }
   } @else {
     .u-h1 {
-      font-size: 30px;
+      font-size: 50px;
     }
 
     .u-h2 {
-      font-size: 22px;
+      font-size: 30px;
     }
 
     .u-h3 {
-      font-size: 20px;
+      font-size: 28px;
     }
 
     .u-h4 {
@@ -5893,7 +5896,7 @@ select::-ms-expand {
 
 .SectionHeader__Heading.SectionHeader__Heading,
 .SectionHeader__SubHeading.SectionHeader__SubHeading {
-  margin-top: -0.325em;
+  // margin-top: -0.325em;
 }
 
 .SectionHeader__SubHeading + .SectionHeader__Heading,
@@ -5903,7 +5906,8 @@ select::-ms-expand {
 }
 
 .SectionHeader__Description {
-  max-width: 530px;
+  max-width: 800px;
+  margin: auto;
 }
 
 .SectionHeader__Description a {
@@ -5971,7 +5975,8 @@ select::-ms-expand {
   }
 
   .SectionHeader__Description {
-    margin-top: 24px;
+    // margin-top: 24px;
+
   }
 
   .SectionHeader__ButtonWrapper {
@@ -8845,7 +8850,7 @@ $vertical-spacing-two-products-per-row  : 0px;
 }
 
 .ImageHero--small {
-  min-height: 330px;
+  min-height: 230px;
 }
 
 .ImageHero--large {
@@ -8886,10 +8891,10 @@ $vertical-spacing-two-products-per-row  : 0px;
 
 .ImageHero__ContentOverlay {
   position: relative;
-  flex-basis: 425px;
+  flex-basis: 1000px; // taille box //
   flex-grow: 0;
   padding: 0 15px;
-  text-shadow: 0 1px rgba(#000000, 0.5);
+  // text-shadow: 0 1px rgba(#000000, 0.5);
 }
 
 .ImageHero__TextContent {
@@ -8949,6 +8954,10 @@ $vertical-spacing-two-products-per-row  : 0px;
   .ImageHero__Block {
     font-size: to-size(11px);
   }
+
+  .ImageHero--small {
+    min-height: 500px;  
+  }
 }
 
 @include av-mq('tablet-and-up') {
@@ -8957,7 +8966,7 @@ $vertical-spacing-two-products-per-row  : 0px;
   }
 
   .ImageHero--small {
-    min-height: 400px;
+    min-height: 200px;
   }
 
   .ImageHero--large {
@@ -8999,7 +9008,7 @@ $vertical-spacing-two-products-per-row  : 0px;
   }
 
   .ImageHero--small {
-    min-height: 450px;
+    min-height: 200px;
   }
 
   .ImageHero--large {
@@ -11792,6 +11801,34 @@ $vertical-spacing-two-products-per-row  : 0px;
 }
 
 
+/** ----------------------------------------------------------------------------
+ * Custom css
+ ----------------------------------------------------------------------------*/
+
+
+ /** ------ Utilites -------------------------------*/
+
+ .mb-0{
+   margin-bottom: 0;
+  }
+
+ .desktop-only{
+   display: block;
+ }
+
+ .pocket-only{
+   display: none;
+ }
+
+  @include av-mq('pocket') {
+
+    .desktop-only{
+      display: none;
+    }
+    .pocket-only{
+      display: block;
+    }
+  }
 
 /**
  * ----------------------------------------------------------------------------
@@ -12156,8 +12193,70 @@ $text_faq_color : {{ settings.text_faq_color }};
 
 /** section text with image PEDRO :)   */
 
-$text-image-background-color : {{ settings.text_image_background }}; 
+$text-image-background-color : {{ settings.text_image_background }};
+$text-image-title-color: {{ settings.text_image_title_color }};
+$text-image-subtitle-color : {{ settings.text_image_subtitle_color }};
+$text-image-text-color : {{ settings.text_image_text_color }};
+
+
+.listcolor-1{
+  color: $ziggy-yellow;
+  font-weight: bold;
+}
+
+.listcolor-2{
+  color: $ziggy-pink;
+  font-weight: bold;
+}
 
 .TextImageBackground{
   background-color: $text-image-background-color;
+}
+
+.text_image--content{
+  max-width: 450px;
+  margin: 50px 0 50px 0;
+}
+
+.text_image--subtitle{
+  font-family: $font-family-lie-to-me ;
+  color: $text-image-subtitle-color;
+  font-size: 30px;
+  transform: rotate(-5deg);
+  margin: 0;
+}
+
+.text_image--title {
+  font-family: $font-family-posterama;
+  color: $text-image-title-color;
+  max-width: 300px;
+  line-height: 1em;
+  margin: 0;
+}
+
+.text_image--text {
+  color: $text-image-text-color;
+  margin-bottom: 30px;
+}
+
+@include av-mq('pocket') {
+  .text_image--content{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 40px;
+  }
+  .text_image--title,
+  .text_image--subtitle {
+    margin-bottom: 0;
+  }
+}
+
+/** section image text overlay   */
+
+.ImageHero__title{
+   font-family: $font-family-posterama;
+}
+
+.SectionHeader__Button{
+  margin: 15px auto;
 }
