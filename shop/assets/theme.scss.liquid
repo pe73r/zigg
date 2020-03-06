@@ -1890,7 +1890,7 @@ body {
   }
 
   .u-h2 {
-    font-size: 30px;
+    font-size: 35px;
   }
 
   .u-h3 {
@@ -8956,7 +8956,7 @@ $vertical-spacing-two-products-per-row  : 0px;
   }
 
   .ImageHero--small {
-    min-height: 500px;  
+    min-height: 500px;
   }
 }
 
@@ -11547,13 +11547,13 @@ $vertical-spacing-two-products-per-row  : 0px;
  */
 
 .Timeline {
-  box-shadow: 0 -2px 10px rgba(#363636, 0.2);
+  // box-shadow: 0 -2px 10px rgba(#363636, 0.2);
 }
 
 .Timeline__ListItem {
   position: relative;
   height: 540px;
-  text-shadow: 0 1px rgba(#000000, 0.5);
+  // text-shadow: 0 1px rgba(#000000, 0.5);
 }
 
 .Timeline__Item {
@@ -11565,7 +11565,7 @@ $vertical-spacing-two-products-per-row  : 0px;
   width: 100%;
   height: 100%;
   opacity: 0;
-  background: rgba(#363636, 0.2);
+  // background: rgba(#363636, 0.2);
   pointer-events: none;
   transition: opacity 0.5s ease-in-out;
 }
@@ -11591,11 +11591,14 @@ $vertical-spacing-two-products-per-row  : 0px;
 
 .Timeline__Inner {
   position: relative;
-  padding: 80px 14px 40px 14px;
   max-height: 100%;
   width: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+  // padding: 80px 14px 40px 14px;
+  padding-top: 70px;
+  padding-left: 5%; // trying differnt paddings
+  padding-right: 5%;
 }
 
 .Timeline__Header > * {
@@ -11640,7 +11643,7 @@ $vertical-spacing-two-products-per-row  : 0px;
 
   .Timeline__Header .Heading,
   .Timeline__Header .Rte a {
-    color: inherit;
+    // color: inherit;
   }
 
   .Timeline__Header .SectionHeader__Description {
@@ -11648,16 +11651,18 @@ $vertical-spacing-two-products-per-row  : 0px;
   }
 }
 
+// change breaking point from pcoket to lap-and-up 641px was too small ///
 @include av-mq('tablet-and-up') {
+
   .Timeline__ListItem {
-    max-width: 1230px;
+    // max-width: 1230px;
     margin: 0 auto;
-    height: 400px;
+    // height: 400px;
     text-shadow: none;
   }
 
   .Timeline__Item {
-    align-items: flex-end;
+    align-items: flex-start;
     background-color: $light-background;
   }
 
@@ -11681,7 +11686,7 @@ $vertical-spacing-two-products-per-row  : 0px;
   }
 
   .Timeline__Inner {
-    padding: 34px 40px;
+    // padding: 34px 40px;
     color: $text-color;
   }
 
@@ -11696,7 +11701,7 @@ $vertical-spacing-two-products-per-row  : 0px;
   }
 
   .Timeline__Inner {
-    padding: 54px 60px;
+    // padding: 54px 60px;
   }
 }
 
@@ -11707,14 +11712,16 @@ $vertical-spacing-two-products-per-row  : 0px;
  */
 
 .Timeline__Nav {
-  position: relative;
+  position: absolute; // change to absolute to display in left block //
+  bottom: 0;
   font-size: to-size(11px);
   font-family: $heading-font-family;
   font-weight: $heading-font-weight;
   font-style: $heading-font-style;
   letter-spacing: 0.2em;
-  color: $text-color-light;
   background: $light-background;
+  margin-bottom: 40px;
+  left: 3%;
 }
 
 .Timeline__NavWrapper {
@@ -11747,7 +11754,7 @@ $vertical-spacing-two-products-per-row  : 0px;
     content: '';
     bottom: 0;
     left: 20px;
-    height: 3px;
+    height: 2px;
     width: calc(100% - 40px - 0.2em);
     opacity: 0;
     background: $text-color;
@@ -11759,7 +11766,6 @@ $vertical-spacing-two-products-per-row  : 0px;
 
 .Timeline__NavItem.is-selected {
   font-size: to-size(18px);
-  color: $text-color;
 
   &::after {
     opacity: 1;
@@ -11778,7 +11784,7 @@ $vertical-spacing-two-products-per-row  : 0px;
   }
 
   .Timeline__Nav {
-    margin-top: 40px;
+    // margin-top: 40px;
     background: none;
     font-size: to-size(12px);
   }
@@ -11796,7 +11802,7 @@ $vertical-spacing-two-products-per-row  : 0px;
 
 @include av-mq('desk') {
   .Timeline__Nav {
-    margin-top: 65px;
+    // margin-top: 65px;
   }
 }
 
@@ -11812,20 +11818,40 @@ $vertical-spacing-two-products-per-row  : 0px;
    margin-bottom: 0;
   }
 
+ .relative{
+   position: relative;
+  }
+
  .desktop-only{
    display: block;
+ }
+
+ .phone-and-up{
+    display: block;
  }
 
  .pocket-only{
    display: none;
  }
 
-  @include av-mq('pocket') {
+ .phone-only{
+   display: none;
+ }
 
+  @include av-mq('pocket') {
     .desktop-only{
       display: none;
     }
     .pocket-only{
+      display: block;
+    }
+  }
+
+  @include av-mq('phone') {
+    .phone-and-up{
+      display: none;
+    }
+    .phone-only{
       display: block;
     }
   }
@@ -12259,4 +12285,88 @@ $text-image-text-color : {{ settings.text_image_text_color }};
 
 .SectionHeader__Button{
   margin: 15px auto;
+}
+
+@include av-mq('phone') {
+  .ImageHeroContent {
+      flex-basis: 330px;
+      background-color: white;
+      padding: 30px;
+      border-radius: 30px;
+      width: 90%;
+  }
+}
+
+
+/** Timeline Section */
+
+$timeline-text-color: {{ settings.timeline_text_color }};
+
+.Timeline__title{
+  font-family: $font-family-posterama;
+  color:$timeline-text-color;
+  margin: 0;
+}
+
+.Timeline__subtitle{
+  font-family: $font-family-lie-to-me ;
+  font-size: 30px;
+  color:$timeline-text-color;
+  transform: rotate(-5deg) !important;
+}
+
+.Timeline__description{
+  max-width: 400px;
+  margin: 0;
+}
+
+.Timeline__Nav {
+  color:$timeline-text-color;
+  max-width: 47%; // to hide de menu when resizing
+}
+
+.Timeline__NavItem.is-selected {
+  color:$timeline-text-color;
+}
+
+.Timeline__NavItem{
+  &:after {
+    background-color: $timeline-text-color;
+  }
+  &:hover {
+    color: $timeline-text-color !important;
+  }
+}
+
+
+@include av-mq('phone') {
+
+  .Timeline__title{
+    margin-bottom: 15px;
+  }
+
+  .Timeline__subtitle{
+    margin-bottom: -15px;
+  }
+
+  .Timeline__description{
+     max-width: 300px;
+     margin: auto;
+  }
+
+  .Timeline__Inner {
+    padding-top: 50px;
+    padding-left: 0;
+    margin: 0 auto;
+  }
+
+  .Timeline__ListItem {
+    text-align: center;
+    color: inherit;
+  }
+
+  .Timeline__Nav {
+    left: 0;
+    max-width: 100%; 
+  }
 }
