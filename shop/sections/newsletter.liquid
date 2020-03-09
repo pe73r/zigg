@@ -2,7 +2,7 @@
   {%- capture mobile_size -%}750x{% if section.settings.image.height >= 960 %}960{% else %}{{ section.settings.image.height }}{% endif %}{%- endcapture -%}
 
   <div class="FlexboxIeFix">
-    <div class="ImageHero ImageHero--newsletter" {% if section.settings.image %}style="background: url({{ section.settings.image | img_url: '1x1' }})"{% endif %}>
+    <div class="ImageHero ImageHero--newsletter relative" {% if section.settings.image %}style="background: url({{ section.settings.image | img_url: '1x1' }})"{% endif %}>
       <div class="ImageHero__ImageWrapper">
         <div class="ImageHero__Image Image--lazyLoad Image--zoomOut"
              data-optimumx="1.4"
@@ -21,18 +21,18 @@
         {%- endunless -%}
       </div>
 
-      <div class="ImageHero__ContentOverlay">
+      <div class="ImageHero__ContentOverlay NewsletterContent"> 
         <header class="SectionHeader SectionHeader--center">
           {%- if section.settings.subheading != blank -%}
-            <h3 class="SectionHeader__SubHeading Heading SubHeading__Wavy u-h3">{{ section.settings.subheading | escape }}</h3>
+            <h3 class="Newsletter__subtitle SubHeading__Wavy u-h3">{{ section.settings.subheading | escape }}</h3>
           {%- endif -%}
 
           {%- if section.settings.title != blank -%}
-            <h2 class="SectionHeader__Heading Heading Heading__Posterama u-h2 m-0">{{ section.settings.title | escape }}</h2>
+            <h2 class="Newsletter__title HeadingPosterama u-h2">{{ section.settings.title | escape }}</h2>
           {%- endif -%}
 
           {%- if section.settings.content != blank -%}
-            <div class="SectionHeader__Description">
+            <div class="Newsletter__description">
               {{ section.settings.content }}
             </div>
           {%- endif -%}
@@ -58,6 +58,12 @@
           {%- endform -%}
         </div>
       </div>
+     <!--- le chat! --->
+     <div class="NewsletterMiauw">
+       {% if section.settings.chat != blank %}
+         <img src="{{ section.settings.chat | img_url: 'master' }}" alt="{{ section.settings.chat.alt }}">
+       {% endif %}
+     </div>
     </div>
   </div>
 </section>
@@ -124,6 +130,11 @@
       "id": "content",
       "label": "Text",
       "default": "<p>A short sentence describing what someone will receive by subscribing</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "chat",
+      "label": "Image"
     }
   ],
   "presets": [

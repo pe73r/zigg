@@ -1890,11 +1890,11 @@ body {
   }
 
   .u-h2 {
-    font-size: 30px;
+    font-size: 35px;
   }
 
   .u-h3 {
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .u-h4 {
@@ -1997,7 +1997,7 @@ body {
     }
 
     .u-h4 {
-      font-size: 19px;
+      font-size: 18px;
     }
 
     .u-h5 {
@@ -4896,10 +4896,13 @@ select::-ms-expand {
   width: 100%;
 }
 
-@include av-mq('phone') {
+@media screen and (max-width: 800px) {
   .ImageHero--newsletter {
-    min-height: 450px !important;
+    min-height: 420px !important;
   }
+}
+
+@include av-mq('phone') {
 
   .ImageHero--newsletter .ImageHero__ContentOverlay {
     padding-left: 25px;
@@ -5947,7 +5950,7 @@ select::-ms-expand {
     font-size: to-size(40px);
     max-width: 600px;
     line-height: 1.2em;
-    font-family: $font-family-posterama;
+    padding-bottom: 20px;
   }
 }
 
@@ -8952,6 +8955,10 @@ $vertical-spacing-two-products-per-row  : 0px;
   margin: -0.325em 0 18px 0;
 }
 
+.ImageHero__BlockContent{
+  margin-top: 30px;
+}
+
 .ImageHero__BlockContent + .ImageHero__BlockLink {
   margin-top: 18px;
 }
@@ -8972,7 +8979,7 @@ $vertical-spacing-two-products-per-row  : 0px;
   }
 
   .ImageHero--small {
-    min-height: 200px;
+    min-height: 250px;
   }
 
   .ImageHero--large {
@@ -8986,8 +8993,8 @@ $vertical-spacing-two-products-per-row  : 0px;
   }
 
   .ImageHero__Block {
-    padding: 48px 15px;
-    max-width: 380px;
+    padding: 48px 25px;
+    max-width: 430px;
   }
 
   .ImageHero__Block--small {
@@ -11820,7 +11827,7 @@ $vertical-spacing-two-products-per-row  : 0px;
 
  /** ------ Utilites -------------------------------*/
 
- .m-0{ 
+ .m-0{
    margin: 0;
   }
 
@@ -11869,8 +11876,10 @@ $vertical-spacing-two-products-per-row  : 0px;
 
   /**  ZIGGY THEME UTILITIES */
 
-  .Heading__Posterama{
+  .HeadingPosterama{
     font-family: $font-family-posterama;
+    line-height: 1em;
+    margin: 0;
   }
 
   .SubHeading__Wavy{
@@ -11879,51 +11888,6 @@ $vertical-spacing-two-products-per-row  : 0px;
     margin: 0;
   }
 
-  .section__header {
-    width: 100%;
-    margin-top: 30px;
-    &.section__header--center {
-      text-align: center;
-    }
-  }
-
-  .section__title-relative {
-    position: relative;
-    padding-bottom: 5rem;
-  }
-
-  .section__title--1 {
-     font-family: $font-family-lie-to-me;
-     font-size: 30px;
-     transform: rotate(-8deg);
-     position: absolute;
-     left: 0;
-     top: 0;
-     margin: 0;
-     &.section__header--center {
-       width: 100%;
-     }
-  }
-
-  .section__title--2 {
-    font-family: $font-family-posterama;
-    font-size: 60px;
-    margin-top: -30px;
-  }
-
-  .section__texte {
-    font-family: $font-family-lato;
-  }
-
-  @include av-mq('pocket') {
-    .section__title--1 {
-       font-size: 35px;
-    }
-
-    .section__title--2 {
-      font-size: 45px;
-    }
-  }
 
 
 /**
@@ -11953,17 +11917,12 @@ $vertical-spacing-two-products-per-row  : 0px;
 
  .picto__title {
    color: $title_picto_color;
-   font-family: $font-family-posterama;
-   font-size: 18px;
    padding-top: 1rem;
-   margin: 0;
  }
 
  .picto__texte {
    color: $text_picto_color;
  }
-
-
 
 
 
@@ -11979,6 +11938,33 @@ $title_1_related_product_color : {{ settings.title_1_related_product_color }};
 $title_2_related_product_color : {{ settings.title_2_related_product_color }};
 $text_related_product_color : {{ settings.text_related_product_color }};
 
+.section__header {
+  width: 100%;
+  margin-top: 30px;
+  &.section__header--center {
+    text-align: center;
+  }
+}
+
+.section__title-relative {
+  position: relative;
+  padding-bottom: 5rem;
+}
+
+.section__title--1 {
+   position: absolute;
+   left: 0;
+   top: 0;
+   margin: 0;
+   &.section__header--center {
+     width: 100%;
+   }
+}
+
+.section__title--2 {
+  margin-top: -30px;
+}
+
 .related-product__container {
   background-color: $backgound_related_product_color;
   padding: 2rem 10%;
@@ -11993,16 +11979,12 @@ $text_related_product_color : {{ settings.text_related_product_color }};
 }
 
 .text_related_product--title {
-  font-family: $font-family-posterama;
   color: $text_related_product_color;
-  font-size: 18px;
   padding-top: 1rem;
-  margin: 0;
 }
 
 .text_related_product--description {
   color: $text_related_product_color;
-  font-size: 15px;
   padding-bottom: 1.5rem;
 }
 
@@ -12237,7 +12219,7 @@ $text_faq_color : {{ settings.text_faq_color }};
   }
 }
 
-/** section text with image PEDRO :)   */
+/** ------ section text with image crees votre abonnement ---- */
 
 $text-image-background-color : {{ settings.text_image_background }};
 $text-image-title-color: {{ settings.text_image_title_color }};
@@ -12265,19 +12247,14 @@ $text-image-text-color : {{ settings.text_image_text_color }};
 }
 
 .text_image--subtitle{
-  font-family: $font-family-lie-to-me ;
   color: $text-image-subtitle-color;
-  font-size: 30px;
-  transform: rotate(-5deg);
-  margin: 0;
 }
 
 .text_image--title {
-  font-family: $font-family-posterama;
   color: $text-image-title-color;
   max-width: 300px;
-  line-height: 1em;
-  margin: 0;
+  margin-top: 10px;
+  padding-bottom: 20px;
 }
 
 .text_image--text {
@@ -12297,11 +12274,8 @@ $text-image-text-color : {{ settings.text_image_text_color }};
   }
 }
 
-/** section image text overlay   */
+/**------------- section image text overlay   ---------------*/
 
-.ImageHero__title{
-   font-family: $font-family-posterama;
-}
 
 .SectionHeader__Button{
   margin: 15px auto;
@@ -12318,21 +12292,17 @@ $text-image-text-color : {{ settings.text_image_text_color }};
 }
 
 
-/** Timeline Section */
+/**------------- Timeline Section -----------------*/
 
 $timeline-text-color: {{ settings.timeline_text_color }};
 
 .Timeline__title{
-  font-family: $font-family-posterama;
   color:$timeline-text-color;
-  margin: 0;
 }
 
 .Timeline__subtitle{
-  font-family: $font-family-lie-to-me ;
-  font-size: 30px;
   color:$timeline-text-color;
-  transform: rotate(-5deg) !important;
+  margin-bottom: 20px;
 }
 
 .Timeline__description{
@@ -12391,14 +12361,38 @@ $timeline-text-color: {{ settings.timeline_text_color }};
   }
 }
 
-/** Newsletter */
+
+/**----------- Notre histoire ----------------*/
+
+
+
+
+/**----------- Newsletter ----------------*/
+
+$newsletter-title-color: {{ settings.newsletter_title_color }};
+$newsletter-subtitle-color: {{ settings.newsletter_subtitle_color }};
+$newsletter-text-color: {{ settings.newsletter_text_color }};
+
+.Newsletter__title{
+  color:$newsletter-title-color;
+}
+
+.Newsletter__subtitle{
+  color:$newsletter-subtitle-color;
+}
+
+.Newsletter__description{
+  color:$newsletter-text-color;
+}
 
 .Submit--newsletter{
   border-radius: 0 5px 5px 0;
+  min-width: fit-content;
+  padding: 15px;
 }
 
 .Newsletter__box{
-  max-width: 400px;
+  max-width: 350px;
   margin: auto;
    input{
       background-color: white;
@@ -12410,4 +12404,58 @@ $timeline-text-color: {{ settings.timeline_text_color }};
         opacity: .3;
       }
    }
+}
+
+.Newsletter__Inner{
+  display: flex;
+}
+
+.NewsletterMiauw{
+   position: absolute;
+   bottom: -3px;
+   left: 15%;
+    img{
+      max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+  .NewsletterMiauw{
+     left: 10%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .NewsletterMiauw{
+     left: 3%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+   .NewsletterMiauw{
+       left: 50%;
+       transform: translateX(-50%);
+        img{
+           max-width: 220px;
+        }
+    }
+
+    .NewsletterContent{
+       position: absolute;
+       top: 30px;
+    }
+
+    .Newsletter__box{
+      max-width: 330px;
+    }
+
+    .Submit--newsletter{
+      padding: 11px; 
+    }
+
+    .Newsletter__description {
+      max-width: 250px;
+      margin: 15px auto;
+     }
 }

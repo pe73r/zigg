@@ -16,7 +16,7 @@
             <img class="pocket-only Image--lazyLoad Image--slide{{ section.settings.image_position | capitalize }}" data-src="{{ image_url_mobile }}" data-expand="-200" data-widths="[{{ supported_sizes_mobile }}]" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
             <noscript>
               <img class="pocket-only" src="{{ section.settings.image-mobile | img_url: '800x' }}" alt="{{ section.settings.image-mobile.alt | escape }}">
-            </noscript> 
+            </noscript>
           {% endif %}
         </div>
       {%- endif -%}
@@ -26,11 +26,11 @@
           {%- if section.settings.subheading != blank or section.settings.title != blank -%}
             <header class="SectionHeader">
               {%- if section.settings.subheading != blank -%}
-                <h3 class="SectionHeader__SubHeading text_image--subtitle Heading u-h6">{{ section.settings.subheading | escape }}</h3>
+                <h3 class="SubHeading__Wavy text_image--subtitle u-h3">{{ section.settings.subheading | escape }}</h3> 
               {%- endif -%}
 
               {%- if section.settings.title != blank -%}
-                <h2 class="SectionHeader__Heading text_image--title Heading u-h1">{{ section.settings.title | escape }}</h2>
+                <h2 class="SectionHeader__Heading text_image--title HeadingPosterama u-h1">{{ section.settings.title | escape }}</h2>
               {%- endif -%}
 
               {%- if section.settings.content != blank -%}

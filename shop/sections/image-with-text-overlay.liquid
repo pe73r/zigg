@@ -25,7 +25,7 @@
           <div class="PlaceholderBackground PlaceholderBackground--Dark">
             {{ 'lifestyle-1' | placeholder_svg_tag: 'PlaceholderBackground__Svg' }}
           </div>
-        {%- endunless -%} 
+        {%- endunless -%}
       </div>
       <!-- image mobile -->
       <div class="ImageHero__ImageWrapper phone-only">
@@ -48,7 +48,7 @@
               {%- endif -%}
 
               {%- if section.settings.title != blank -%}
-                <h2 class="SectionHeader__Heading ImageHero__title Heading u-h3 mb-0">{{ section.settings.title | escape }}</h2>
+                <h2 class="SectionHeader__Heading ImageHero__title HeadingPosterama u-h3">{{ section.settings.title | escape }}</h2>  
               {%- endif -%}
 
               {%- if section.settings.content != blank -%}

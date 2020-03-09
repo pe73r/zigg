@@ -110,7 +110,7 @@
     },
     "newsletter": {
       "input": "Entrez votre email",
-      "submit": "Valider",
+      "submit": "Je m'inscris", 
       "success": "Vous êtes maintenant inscrit à notre newsletter"
     }
   },

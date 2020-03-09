@@ -247,7 +247,7 @@
       },
       {
         "type": "color",
-        "id": "text_image_subtitle_color", 
+        "id": "text_image_subtitle_color",
         "label": "Text image subtitle",
         "default": "#fbf5e6"
       },
@@ -271,6 +271,28 @@
         "type": "color",
         "id": "timeline_text_color",
         "label": "Timeline text color",
+        "default": "#dd8570"
+      },
+      {
+        "type": "header",
+        "content": "Section Newsletter"
+      },
+      {
+        "type": "color",
+        "id": "newsletter_title_color",
+        "label": "Newsletter title color",
+        "default": "#dd8570"
+      },
+      {
+        "type": "color",
+        "id": "newsletter_subtitle_color",
+        "label": "Newsletter subtitle color",
+        "default": "#5e8b86"   
+      },
+      {
+        "type": "color",
+        "id": "newsletter_text_color",
+        "label": "Newsletter text color",
         "default": "#dd8570"
       },
       {

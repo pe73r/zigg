@@ -9,11 +9,11 @@
               {%- if block.settings.subheading != blank or block.settings.heading != blank -%}
                 <header class="Timeline__Header SectionHeader">
                   {%- if block.settings.subheading != blank -%}
-                    <h3 class="Timeline__subtitle Heading u-h4">{{ block.settings.subheading | escape }}</h3>
+                    <h3 class="SubHeading__Wavy Timeline__subtitle Heading u-h3">{{ block.settings.subheading | escape }}</h3>
                   {%- endif -%}
 
                   {%- if block.settings.heading != blank -%}
-                    <h2 class="Heading Timeline__title u-h2">{{ block.settings.heading | escape }}</h2>
+                    <h2 class="HeadingPosterama Timeline__title u-h2">{{ block.settings.heading | escape }}</h2>
                   {%- endif -%}
 
                   {%- if block.settings.content != blank -%}

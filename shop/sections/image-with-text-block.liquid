@@ -25,11 +25,11 @@
         <div class="ImageHero__Wrapper">
           <div class="ImageHero__Block ImageHero__Block--{{ section.settings.block_size }}">
             {%- if section.settings.subtitle != blank -%}
-              <h4 class="ImageHero__BlockHeading Heading u-h3 SubHeading__Wavy">{{ section.settings.subtitle | escape }}</h4> 
+              <h4 class="ImageHero__BlockHeading SubHeading__Wavy u-h3">{{ section.settings.subtitle | escape }}</h4> 
             {%- endif -%}
 
             {%- if section.settings.title != blank -%}
-              <h3 class="ImageHero__BlockHeading Heading u-h2 Heading__Posterama">{{ section.settings.title | escape }}</h3>
+              <h3 class="ImageHero__BlockHeading HeadingPosterama u-h2">{{ section.settings.title | escape }}</h3>
             {%- endif -%}
 
             {%- if section.settings.content != blank -%}
