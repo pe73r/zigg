@@ -110,7 +110,7 @@
     },
     "newsletter": {
       "input": "Entrez votre email",
-      "submit": "Je m'inscris", 
+      "submit": "Je m'inscris",
       "success": "Vous êtes maintenant inscrit à notre newsletter"
     }
   },
@@ -323,7 +323,8 @@
         "other": "Seulement {{count}} exemplaires en stock !"
       },
       "add_to_cart": "Ajouter au panier",
-      "sold_out": "Rupture",
+      "add": "Ajouter",
+      "sold_out": "Rupture", 
       "pre_order": "Pré-commander",
       "unavailable": "Indisponible",
       "view_info": "En savoir plus",

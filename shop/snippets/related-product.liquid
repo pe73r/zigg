@@ -23,8 +23,8 @@
             {{ product.featured_image.src | img_url: '480x480' | img_tag: product.title }}
           {% endif %}
 
-          <p class="HeadingPosterama u-h4 text_related_product--title">{{ product.title }}</p> 
-          <p class="HeadingPosterama text_related_product--description">{{ product.metafields.global.subtitle }}</p>
+          <p class="HeadingPosterama u-h4 text_related_product--title">{{ product.title }}</p>
+          <p class="text_related_product--description">{{ product.metafields.global.subtitle }}</p>
         </a>
 
         <form method="post" action="/cart/add" class="form_related_product">
@@ -38,7 +38,7 @@
             {% unless product.available %}disabled="disabled"{% endunless %}>
               <span data-add-to-cart-text>
                 {% if product.available %}
-                  {{ 'product.form.add_to_cart' | t }} | {{ product.price | money }}
+                  {{ 'product.form.add' | t }} | {{ product.price | money }}
                 {% else %}
                   {{ 'product.form.sold_out' | t }}
                 {% endif %}
@@ -65,7 +65,7 @@
       </div>
     </div>
     {% if section.settings.button-text != blank %}
-      <div class="text_related_product--button">
+      <div class="RelatedProduct__BigButton">
         <a class="Button Button--secondary" href="{{ section.settings.url }}">{{ section.settings.button-text }}</a>
       </div>
     {% endif %}
