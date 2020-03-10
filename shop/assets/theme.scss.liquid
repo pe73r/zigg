@@ -9759,7 +9759,7 @@ $vertical-spacing-two-products-per-row  : 0px;
     max-width: 820px;
     padding-left: 50px;
     margin-top: -30px;
-  } 
+  }
 
   .Product__Aside .SectionHeader {
     margin-bottom: 30px;
@@ -11994,7 +11994,7 @@ $text_related_product_color : {{ settings.text_related_product_color }};
 
 .section__header {
   width: 100%;
-  margin: 30px auto;
+  margin: 40px auto;
 
   &.section__header--center {
     text-align: center;
@@ -12017,7 +12017,7 @@ $text_related_product_color : {{ settings.text_related_product_color }};
 }
 
 .section__title--2 {
-  margin-top: -30px;
+  margin-top: -20px;
 }
 
 .related-product__container {
@@ -12118,7 +12118,7 @@ $text_related_product_color : {{ settings.text_related_product_color }};
 
 .metafields__product--container {
   background-color: $backgound_metafields_product_color;
-  padding: 2rem 10%;
+  padding: 4rem 10%;
 }
 
 .metafields__product--links {
@@ -12131,17 +12131,28 @@ $text_related_product_color : {{ settings.text_related_product_color }};
 
 .metafields__product--link {
   color: $link_metafields_product_color;
-  font-family: $font-family-posterama;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: bold;
   padding-top: 1rem;
   margin: 0;
   border-bottom: 2px solid transparent;
   flex: auto;
   text-transform: uppercase;
-      margin: 0 2rem;
+  margin: 0 2rem;
+  position: relative;
+
   &.active {
-    border-bottom: 2px solid $link_metafields_product_color;
+    position: relative;
+
+      &:before {
+         content : "";
+         position: absolute;
+         left    : 25%;
+         bottom  : -4px;
+         height  : 1px;
+         width   : 50%;
+         border-bottom: 2px solid $link_metafields_product_color;
+        }
   }
 }
 
@@ -12150,7 +12161,7 @@ $text_related_product_color : {{ settings.text_related_product_color }};
   font-family: $font-family-posterama;
   font-size: 40px;
   padding-bottom: 1rem;
-  margin: 0;
+  margin: 0 10px;
   &::first-letter {
     text-transform: uppercase;
   }
@@ -12167,24 +12178,42 @@ $text_related_product_color : {{ settings.text_related_product_color }};
 .metafields__product--detail {
   animation: fadeEffect .5s;
 }
+//garanties metafields //
+
+.garanty__flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+}
 
 .garanty__info {
   display: flex;
   align-items: center;
   text-align: left;
-  padding-bottom: 1rem;
+  margin-bottom: 30px;
 }
 
 .garanty__image {
   width: 50px;
-  margin-right: 1rem;
+  margin: 0;
+  margin-right: 20px;
 }
 
 @include av-mq('pocket') {
+  .metafields__product--container {
+    padding: 1rem 5%;
+  }
+  .metafields__product--title{
+    text-align: center;
+  }
   .metafields__product--links {
     max-width: 100%;
     justify-content: start;
     white-space: nowrap;
+  }
+  .garanty__flex{
+    flex-direction: column;
   }
 }
 
@@ -12262,6 +12291,7 @@ $text_faq_color : {{ settings.text_faq_color }};
     float: right;
     margin-right: 1rem;
     transition: .3s transform ease-in-out;
+    margin-top: -6px;
   }
   &.active::after {
     transform: rotate(45deg);
@@ -12288,6 +12318,14 @@ $text_faq_color : {{ settings.text_faq_color }};
     width: 100%;
     white-space: normal;
   }
+  .faq__container {
+    padding: 1rem 5%;
+  }
+  .title_2_faq {
+    font-size: 30px; //not good but to not touch others u-h2 //
+    margin-top: -25px;
+  }
+
 }
 
 /** ------ section text with image crees votre abonnement ---- */
@@ -12657,4 +12695,18 @@ $newsletter-text-color: {{ settings.newsletter_text_color }};
       width: 90%;
       margin: auto;
   }
+}
+
+/*----------- ENGAGEMENTS ------------*/
+.engagements__subtitle{
+  color: $ziggy-red;
+}
+
+.engagements__title{
+
+}
+
+.engagements__content{
+   max-width: 500px;
+   margin: auto;
 }

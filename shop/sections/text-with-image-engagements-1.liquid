@@ -1,0 +1,71 @@
+{% include 'text-with-image' %}
+
+{% schema %}
+{
+  "name": "Engagements 1",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background color",
+      "default": "#f9d8c4" 
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub-heading",
+      "default": "Sub-heading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1200 x 1200px .png recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "image-mobile",
+      "label": "Image mobile"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "textarea",
+      "id": "content",
+      "label": "Text",
+      "default": "<p>Add your own custom content to give more information about your store, availability details...</p>",
+      "info": "Include class 'listcolor-1 or listcolor-2'"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    }
+  ]
+}
+{% endschema %}

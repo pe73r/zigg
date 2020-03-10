@@ -3,12 +3,12 @@
     <div class="section__header {% if section.settings.faq_title_align_center %}section__header--center{% endif %}">
       {% if section.settings.faq_title_typo_1 != blank %}
       <div class="section__title-relative">
-        <h2 class="heading section__title--1 title_1_faq {% if section.settings.faq_title_align_center %}section__header--center{% endif %}">{{ section.settings.faq_title_typo_1 | escape }}</h2>
+        <h2 class="SubHeading__Wavy section__title--1 title_1_faq u-h3 {% if section.settings.faq_title_align_center %}section__header--center{% endif %}">{{ section.settings.faq_title_typo_1 | escape }}</h2>
       </div>
       {% endif %}
 
       {% if section.settings.faq_title_typo_2 != blank %}
-        <h3 class="heading section__title--2 title_2_faq">{{ section.settings.faq_title_typo_2 | escape }}</h3>
+        <h3 class="HeadingPosterama section__title--2 title_2_faq u-h2">{{ section.settings.faq_title_typo_2 | escape }}</h3>
       {% endif %}
     </div>
     <div class="faq__content">
