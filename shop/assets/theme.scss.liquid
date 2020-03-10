@@ -48,6 +48,8 @@ $product-sale-price-color: {{settings.product_on_sale_color}};
 $ziggy-yellow: #eaa858;
 $ziggy-pink: #f0ab9c;
 $ziggy-green: #45605c;
+$ziggy-red: #dd8570;
+
 
 /* Typography */
 
@@ -2640,7 +2642,7 @@ body:not(.is-tabbing) .flickity-enabled:focus {
   border-radius: 50%;
   cursor: pointer;
   background: transparent;
-  border: 1px solid $border-color;
+  border: 1px solid #B2B4B4;
   transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
 
   /* This is used to increase the clickable area */
@@ -2761,8 +2763,8 @@ body:not(.is-tabbing) .flickity-enabled:focus {
  */
 
 .Collapsible {
-  border-top: 1px solid $border-color;
-  border-bottom: 1px solid $border-color;
+  border-top: 2px solid $ziggy-green;
+  border-bottom: 2px solid $ziggy-green;
   overflow: hidden;
 }
 
@@ -2796,21 +2798,21 @@ body:not(.is-tabbing) .flickity-enabled:focus {
     position: absolute;
     content: '';
     top: 50%;
-    left: 50%;
+    left: -10%;
     transform: translate(-50%, -50%) rotate(-90deg);
     background-color: currentColor;
     transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
   }
 
   &::before {
-    width: 11px;
-    height: 1px;
+    width: 14px;
+    height: 3px;
     opacity: 1;
   }
 
   &::after {
-    width: 1px;
-    height: 11px;
+    width: 3px;
+    height: 14px;
   }
 }
 
@@ -2905,7 +2907,7 @@ body:not(.is-tabbing) .flickity-enabled:focus {
   }
 
   .Collapsible--large .Collapsible__Button {
-    padding: 34px 0;
+    padding: 28px 20px;
   }
 
   .Collapsible--large .Collapsible__Content {
@@ -4321,13 +4323,14 @@ select::-ms-expand {
 .QuantitySelector {
   display: inline-flex;
   align-items: center;
-  border: 1px solid $border-color;
+  border: 2px solid $ziggy-green;
+  border-radius: 8px;
   white-space: nowrap;
 
   svg {
     width: 10px;
     height: 10px;
-    stroke-width: 1.5px;
+    stroke-width: 3.5px;
     vertical-align: -1px;
   }
 }
@@ -9373,7 +9376,7 @@ $vertical-spacing-two-products-per-row  : 0px;
 
 .Product__Gallery {
   position: relative;
-  margin-bottom: 28px;
+  margin-bottom: 50px;
 }
 
 .Product__ViewInSpace {
@@ -9755,7 +9758,8 @@ $vertical-spacing-two-products-per-row  : 0px;
   .Product__Aside {
     max-width: 820px;
     padding-left: 50px;
-  }
+    margin-top: -30px;
+  } 
 
   .Product__Aside .SectionHeader {
     margin-bottom: 30px;
@@ -9974,10 +9978,13 @@ $vertical-spacing-two-products-per-row  : 0px;
 }
 
 .ProductMeta__Description {
-  margin: 24px 0;
-  padding-top: 24px;
-  border-top: 1px solid $border-color;
+  margin: 15px 0;
+  padding-bottom: 24px;
+  border-bottom: 2px solid $ziggy-green;
   text-align: left;
+   li{
+     padding: 2px 0;
+   }
 }
 
 .ProductMeta__ShareButtons {
@@ -10213,7 +10220,7 @@ $vertical-spacing-two-products-per-row  : 0px;
 
 @include av-mq('pocket') {
   .Product__Tabs .Collapsible {
-    padding: 0 24px;
+    padding: 0 10px;
   }
 }
 
@@ -11788,7 +11795,7 @@ $vertical-spacing-two-products-per-row  : 0px;
 }
 
 .Timeline__NavItem.is-selected {
-  font-size: to-size(15px);    
+  font-size: to-size(15px);
 
   &::after {
     opacity: 1;
@@ -12590,5 +12597,64 @@ $newsletter-text-color: {{ settings.newsletter_text_color }};
 
   .Footer__Content {
     max-width: 230px;
+  }
+}
+
+/*---------------------------------*/
+/*----------- PRODUCT ------------*/
+/*---------------------------------*/
+
+.ProductContainer{
+   max-width: 1150px;
+   margin: auto;
+}
+
+.ProductTitle{
+  color: $ziggy-red;
+  text-align: left;
+}
+
+.ProductSubtitle{
+  margin: 10px 0;
+}
+
+@media screen and (min-width: 1240px){
+  .Product__Info {
+      width: 500px;
+  }
+  .Product__Wrapper {
+    max-width: calc(100% - 600px);
+ }
+}
+
+.Product__SlideshowNav{
+  position: absolute;
+  top: 0;
+  left: -30px;
+}
+
+.Product__SlideshowNavScroller{
+  display: flex;
+  flex-direction: column;
+}
+
+.QuantitySelector__CurrentQuantity{
+  font-weight: bold;
+  font-family: $font-family-posterama;
+}
+
+.Product__SlideshowNavArrow{
+  display: none;
+}
+
+.Product__SlideshowMobileNav{
+  margin: 0;
+  margin-top: -50px;
+}
+
+@include av-mq('phone') {
+  .Collapsible {
+      width: 90%;
+      margin: auto;
   }
 }

@@ -12,19 +12,22 @@
     </h2>
   {%- endif -%}
 
-  <h1 class="ProductMeta__Title Heading u-h2">
+  <h1 class="ProductMeta__Title HeadingPosterama ProductTitle u-h3">
     {%- if template.name == 'product' -%}
       {{- product.title -}}
     {%- else -%}
       <a href="{{ product.url }}">{{ product.title }}</a>
     {%- endif -%}
   </h1>
+  {% if product.metafields.global.subtitle != blank %}
+    <h4 class="ProductSubtitle u-h4">{{ product.metafields.global.subtitle }}</h4> 
+  {% endif %}
 
   {%- if section.settings.show_sku and product.selected_or_first_available_variant.sku != blank -%}
     <p class="ProductMeta__Sku Heading Text--subdued u-h6">{{ 'product.form.sku' | t }}: <span class="ProductMeta__SkuNumber">{{ product.selected_or_first_available_variant.sku }}</span></p>
   {%- endif -%}
 
-  {%- if product.template_suffix != 'coming-soon' -%}
+  {%- if product.template_suffix != 'coming-soon' and section.settings.show-price -%}
     <div class="ProductMeta__PriceList Heading">
       {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
         <span class="ProductMeta__Price Price Price--highlight Text--subdued u-h4" data-money-convertible>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span>

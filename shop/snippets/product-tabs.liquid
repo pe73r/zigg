@@ -69,7 +69,7 @@
   <div class="Product__Tabs">
     {%- if has_unique_tab_1 -%}
       <div class="Collapsible Collapsible--large">
-        <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+        <button class="Collapsible__Button HeadingPosterama u-h6" data-action="toggle-collapsible" aria-expanded="false">
           {{- unique_tab_1_title -}} <span class="Collapsible__Plus"></span>
         </button>
 
@@ -85,7 +85,7 @@
 
     {%- if has_unique_tab_2 -%}
       <div class="Collapsible Collapsible--large">
-        <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+        <button class="Collapsible__Button HeadingPosterama u-h6" data-action="toggle-collapsible" aria-expanded="false">
           {{- unique_tab_2_title -}} <span class="Collapsible__Plus"></span>
         </button>
 
@@ -101,7 +101,7 @@
 
     {%- if has_unique_tab_3 -%}
       <div class="Collapsible Collapsible--large">
-        <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+        <button class="Collapsible__Button HeadingPosterama u-h6" data-action="toggle-collapsible" aria-expanded="false">
           {{- unique_tab_3_title -}} <span class="Collapsible__Plus"></span>
         </button>
 
@@ -117,7 +117,7 @@
 
     {%- if first_page != empty -%}
       <div class="Collapsible Collapsible--large">
-        <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+        <button class="Collapsible__Button HeadingPosterama u-h6" data-action="toggle-collapsible" aria-expanded="false">
           {{- first_page.title -}} <span class="Collapsible__Plus"></span>
         </button>
 
@@ -133,7 +133,7 @@
 
     {%- if second_page != empty -%}
       <div class="Collapsible Collapsible--large">
-        <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+        <button class="Collapsible__Button HeadingPosterama u-h6" data-action="toggle-collapsible" aria-expanded="false">
           {{- second_page.title -}} <span class="Collapsible__Plus"></span>
         </button>
 
@@ -143,7 +143,7 @@
               {{- second_page.content -}}
             </div>
           </div>
-        </div>
+        </div> 
       </div>
     {%- endif -%}
 
@@ -156,7 +156,7 @@
           {%- assign reviews_count = product.metafields.spr.reviews | split: '"reviewCount": "' | last | split: '"' | first | plus: 0 -%}
         {%- endif -%}
 
-        <button class="Collapsible__Button Heading u-h6" data-action="toggle-collapsible" aria-expanded="false">
+        <button class="Collapsible__Button HeadingPosterama u-h6" data-action="toggle-collapsible" aria-expanded="false">
           <span>{{ 'product.tabs.reviews' | t }} <span class="text--light">({{ reviews_count | default: 0 }})</span></span>
           <span class="Collapsible__Plus"></span>
         </button>

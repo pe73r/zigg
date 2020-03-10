@@ -16,7 +16,6 @@
 {%- endcapture -%}
 
 <section class="Product Product--{{ section.settings.image_size }}" data-section-id="{{ section.id }}" data-section-type="product" data-section-settings='{{ section_settings }}'>
- <div class="ProductContainer">
   <div class="Product__Wrapper">
     {%- capture action_list_items -%}
       {%- if section.settings.enable_image_zoom -%}
@@ -117,7 +116,7 @@
     {%- endcapture -%}
 
     {%- if product.media.size > 0 -%}
-      <div class="Product__Gallery relative {% if section.settings.stack_images %}Product__Gallery--stack{% endif %} {% if section.settings.show_thumbnails and media_count > 1 %}Product__Gallery--withThumbnails{% else %}Product__Gallery--withDots{% endif %}">
+      <div class="Product__Gallery {% if section.settings.stack_images %}Product__Gallery--stack{% endif %} {% if section.settings.show_thumbnails and media_count > 1 %}Product__Gallery--withThumbnails{% else %}Product__Gallery--withDots{% endif %}">
         <span id="ProductGallery" class="Anchor"></span>
 
         {%- if action_list_items != blank -%}
@@ -187,7 +186,6 @@
           "prevNextButtons": false,
           "pageDots": false,
           "adaptiveHeight": true,
-          "draggable": true, 
           "watchCSS": true,
           "dragThreshold": 8,
           "initialIndex": {{ initial_media_index }},
@@ -333,7 +331,6 @@
       </div>
     {%- endif -%}
   </div>
- </div>
 </section>
 
 {%- comment -%}
@@ -441,12 +438,6 @@ This is the root container for the zoom functionality. Must not be removed, as o
       "type": "checkbox",
       "id": "show_sku",
       "label": "Show SKU",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "show-price",
-      "label": "Show price",
       "default": false
     },
     {
