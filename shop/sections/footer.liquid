@@ -1,5 +1,5 @@
-{%- if template.name == 'page' or template.name == 'blog' or template == 'customers/account' or template == 'customers/order' or template == 'customers/addresses' -%}
-  {%- assign add_top_margin = true -%}
+{%- if template.name == 'blog' or template == 'customers/account' or template == 'customers/order' or template == 'customers/addresses' -%}
+  {%- assign add_top_margin = true -%} 
 {%- else -%}
   {%- assign add_top_margin = false -%}
 {%- endif -%}
@@ -14,7 +14,7 @@
       <div class="Footer__Inner">
         <div class="FooterFlexLeft">
            {%- for block in section.blocks -%}
-             {%- case block.type -%} 
+             {%- case block.type -%}
              {%- when 'text' -%}
                <div class="Footer__Block Footer__Block--{{ block.type }}" {{ block.shopify_attributes }}>
                  {%- if block.settings.logo != blank -%}

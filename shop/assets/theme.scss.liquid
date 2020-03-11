@@ -11852,6 +11852,10 @@ $vertical-spacing-two-products-per-row  : 0px;
    margin-bottom: 0;
   }
 
+  .mt-10{
+    margin-top: 10px;
+  }
+
  .relative{
    position: relative;
   }
@@ -12709,4 +12713,62 @@ $newsletter-text-color: {{ settings.newsletter_text_color }};
 .engagements__content{
    max-width: 500px;
    margin: auto;
+}
+
+
+/*----------- page ENGAGEMENTS ------------*/
+
+.text_image__subtitle{
+  color: $ziggy-red;
+  margin-bottom: 15px;
+}
+
+.text_image__content{
+  max-width: 600px;
+  padding: 50px;
+  width: 90%;
+  margin: auto;
+}
+
+.text_image__description{
+  margin: 20px 0;
+}
+
+.text_image__link{
+   text-decoration: underline;
+   font-weight: bold;
+}
+
+.CollapsibleEngagements{
+  padding: 15px 10px;
+}
+
+.CollapsibleEngagements__Content{
+  padding: 10px;
+   a{
+     display: block;
+     text-decoration: underline;
+     font-weight: bold;
+   }
+}
+
+.Engagements__Plus{
+  right: 10px;
+}
+
+
+@include av-mq('phone') {
+
+   .Column__Reverse{ 
+     display: flex;
+     flex-direction: column-reverse;
+   }
+
+   .Collapsible__box{
+    width: 100%;
+  }
+
+  .text_image__content{
+    padding: 30px 0;
+  }
 }

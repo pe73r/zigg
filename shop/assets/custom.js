@@ -64,6 +64,8 @@
 
 var tabsMetafields = new theme.tabsMetafields();
 
+
+
 theme.collapseFAQ = new function() {
 
  function collapseFAQ() {

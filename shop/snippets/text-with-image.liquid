@@ -3,9 +3,10 @@
      background-color: {{ section.settings.background-color }}
     }
 </style>
+{% if section.settings.display %}
 <section id="section-{{ section.id }}" class="Section {% unless section.settings.image %}Section--spacingNormal{% endunless %}" data-section-type="related-product">
   <div class="Text-with-image__Background">
-      <div class="grid grid--center grid--middle {% if section.settings.image_position == "right" %} grid--rev {% endif %}">
+      <div class="grid grid--center grid--middle {% if section.settings.image_position == "right" %} grid--rev {% endif %} {% if section.settings.image-reverse %} Column__Reverse {% endif %}"> 
         <div class="1/2--lap-and-up grid__cell">
           {%- if section.settings.image != blank -%}
             <div class="FeatureText__ImageWrapper">
@@ -14,40 +15,64 @@
               {%- assign image_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
               {%- assign image_url_mobile = section.settings.image-mobile | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-               <img class="Image--lazyLoad Image--slide{{ section.settings.image_position | capitalize }} {% if section.settings.image-mobile != blank %} desktop-only {% endif %}" data-src="{{ image_url }}" data-expand="-200" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
+               <img class="desktop-only Image--lazyLoad Image--slide{{ section.settings.image_position | capitalize }} {% if section.settings.image-mobile != blank %} desktop-only {% endif %}" data-src="{{ image_url }}" data-expand="-200" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
               <noscript>
-               <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.image.alt | escape }}">
+                <img class="desktop-only" src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.image.alt | escape }}">
               </noscript>
+
               {% if section.settings.image-mobile != blank %}
-                <img class="pocket-only Image--lazyLoad Image--slide{{ section.settings.image_position | capitalize }}" data-src="{{ image_url_mobile }}" data-expand="-200" data-widths="[{{ supported_sizes_mobile }}]" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
-                <noscript>
                   <img class="pocket-only" src="{{ section.settings.image-mobile | img_url: '800x' }}" alt="{{ section.settings.image-mobile.alt | escape }}">
-                </noscript>
               {% endif %}
             </div>
           {%- endif -%}
         </div>
         <div class="1/2--lap-and-up grid__cell">
-           <div class="text_image--content">
+           <div class="text_image__content">
               {%- if section.settings.subheading != blank or section.settings.title != blank -%}
                 <header class="SectionHeader">
                   {%- if section.settings.subheading != blank -%}
-                    <h3 class="SubHeading__Wavy text_image--subtitle u-h3">{{ section.settings.subheading | escape }}</h3>
+                    <h3 class="SubHeading__Wavy text_image__subtitle u-h3">{{ section.settings.subheading | escape }}</h3>
                   {%- endif -%}
 
                   {%- if section.settings.title != blank -%}
-                    <h2 class="SectionHeader__Heading text_image--title HeadingPosterama u-h1">{{ section.settings.title | escape }}</h2>
+                    <h2 class="SectionHeader__Heading  HeadingPosterama u-h2">{{ section.settings.title | escape }}</h2>
                   {%- endif -%}
 
                   {%- if section.settings.content != blank -%}
-                    <div class="SectionHeader__Description text_image--text Rte">
+                    <div class="SectionHeader__Description text_image__description Rte">
                       {{ section.settings.content }}
                     </div>
                   {%- endif -%}
 
                   {%- if section.settings.link_text != blank -%}
-                    <a href="{{ section.settings.link_url }}" class="Button Button--secondary">{{ section.settings.link_text | escape }}</a>
+                    <div>
+                      <a href="{{ section.settings.link_url }}" class="text_image__link">{{ section.settings.link_text | escape }}</a>
+                    </div>
                   {%- endif -%}
+                  {%- if section.settings.link_text-2 != blank -%}
+                    <div>
+                     <a href="{{ section.settings.link_url-2 }}" class="text_image__link">{{ section.settings.link_text-2 | escape }}</a>
+                   </div>
+                  {%- endif -%}
+                  {%- if section.settings.link_text-3 != blank -%}
+                    <div>
+                     <a href="{{ section.settings.link_url-3 }}" class="text_image__link">{{ section.settings.link_text-3 | escape }}</a>
+                   </div>
+                  {%- endif -%}
+                  <div class="mt-10">
+                    {% for block in section.blocks %}
+                      <div class="Collapsible Collapsible__box">
+                        <button class="Collapsible__Button CollapsibleEngagements HeadingPosterama u-h6" data-action="toggle-collapsible" aria-expanded="false">
+                          {{ block.settings.title }} <span class="Collapsible__Plus"></span>
+                        </button>
+                        <div class="Collapsible__Inner">
+                           <div class="CollapsibleEngagements__Content">
+                             {{ block.settings.content }}
+                           </div>
+                         </div>
+                      </div>
+                    {% endfor %}
+                  </div>
                 </header>
               {%- endif -%}
            </div>
@@ -55,3 +80,4 @@
       </div>
     </div>
   </section>
+{% endif %}
