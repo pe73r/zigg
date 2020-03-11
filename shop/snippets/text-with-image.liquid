@@ -3,10 +3,13 @@
      background-color: {{ section.settings.background-color }}
     }
 </style>
+{% if section.settings.anchor != blank %}
+  <a name="{{ section.settings.anchor }}"></a> 
+{% endif %}
 {% if section.settings.display %}
 <section id="section-{{ section.id }}" class="Section {% unless section.settings.image %}Section--spacingNormal{% endunless %}" data-section-type="related-product">
   <div class="Text-with-image__Background">
-      <div class="grid grid--center grid--middle {% if section.settings.image_position == "right" %} grid--rev {% endif %} {% if section.settings.image-reverse %} Column__Reverse {% endif %}"> 
+      <div class="grid grid--center grid--middle {% if section.settings.image_position == "right" %} grid--rev {% endif %} {% if section.settings.image-reverse %} Column__Reverse {% endif %}">
         <div class="1/2--lap-and-up grid__cell">
           {%- if section.settings.image != blank -%}
             <div class="FeatureText__ImageWrapper">
@@ -35,7 +38,7 @@
                   {%- endif -%}
 
                   {%- if section.settings.title != blank -%}
-                    <h2 class="SectionHeader__Heading  HeadingPosterama u-h2">{{ section.settings.title | escape }}</h2>
+                    <h2 class="text_image__title SectionHeader__Heading  HeadingPosterama u-h2">{{ section.settings.title | escape }}</h2>
                   {%- endif -%}
 
                   {%- if section.settings.content != blank -%}

@@ -215,6 +215,7 @@ $uppercase-heading: {% if settings.uppercase_heading %}true{% else %}false{% end
 $base-text-font-size   : {{settings.base_text_font_size}}px;
 $default-text-font-size: 14px;
 $massive-heading-font-size: 80px;
+$title-engagements-mobile-font-size: 24px;
 
 $font-family-lato : {{settings.text_font.family}}, {{ settings.text_font.fallback_families }};
 $font-family-lie-to-me : {{settings.text_font.family}}, {{ settings.text_font.fallback_families }};
@@ -12759,6 +12760,11 @@ $newsletter-text-color: {{ settings.newsletter_text_color }};
 
 @include av-mq('phone') {
 
+  .text_image__title{
+     font-size: $title-engagements-mobile-font-size;
+     line-height: 1.3em;
+  }
+
    .Column__Reverse{
      display: flex;
      flex-direction: column-reverse;
@@ -12773,7 +12779,7 @@ $newsletter-text-color: {{ settings.newsletter_text_color }};
   }
 }
 
-/*----------- section centered ------------*/
+/*----------- section text centered ------------*/ 
 
 .TextCentered__Height{
   min-height: 300px;
@@ -12797,7 +12803,7 @@ $newsletter-text-color: {{ settings.newsletter_text_color }};
 
 @media screen and (max-width: 800px) {
   .TextCenteredMiauw{
-     right: 3%; 
+     right: 3%;
   }
 }
 
