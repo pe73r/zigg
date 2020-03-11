@@ -1,0 +1,113 @@
+<section id="section-{{ section.id }}">
+  <div class="FlexboxIeFix TextCenteredBackground">
+    <div class="ImageHero TextCentered__Height relative">
+      <div class="ImageHero__ContentOverlay TextCentered__content">
+        <header class="SectionHeader SectionHeader--center">
+          {%- if section.settings.subheading != blank -%}
+            <h3 class="TextCentered__subtitle SubHeading__Wavy u-h3">{{ section.settings.subheading | escape }}</h3>
+          {%- endif -%}
+
+          {%- if section.settings.title != blank -%}
+            <h2 class="TextCentered__title HeadingPosterama u-h2">{{ section.settings.title | escape }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.content != blank -%}
+            <div class="TextCentered__description">
+              {{ section.settings.content }}
+            </div>
+          {%- endif -%}
+          {%- if section.settings.button != blank -%}
+            <div class="TextCentered__button">
+              <a class="Button Button--secondary" href="{{ section.settings.url }}">{{ section.settings.button }}</a>
+            </div>
+          {%- endif -%}
+
+        </header>
+      </div>
+     <!--- le chat! --->
+     <div class="TextCenteredMiauw"> 
+       {% if section.settings.chat != blank %}
+         <img src="{{ section.settings.chat | img_url: 'master' }}" alt="{{ section.settings.chat.alt }}">
+       {% endif %}
+     </div>
+    </div>
+  </div>
+</section>
+
+<style>
+
+  #section-{{ section.id }} .TextCentered__content {
+    color: {{ section.settings.text_color }};
+  }
+  #section-{{ section.id }} .TextCenteredBackground{
+    background-color: {{ section.settings.background-color }};
+   }
+
+</style>
+
+{% schema %}
+{
+  "name": "Text centered",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "display",
+      "label": "Display section ?",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background color",
+      "default": "#668984"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "In cat we trust"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "YES WE CAT"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Text",
+      "default": "<p>A short sentence describing what someone will receive by subscribing</p>"
+    },
+    {
+      "type": "text",
+      "id": "button",
+      "label": "Button",
+      "default": "Je m'abonne"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "chat",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Promotional",
+      "name": "Newsletter",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

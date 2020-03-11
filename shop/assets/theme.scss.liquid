@@ -214,6 +214,7 @@ $uppercase-heading: {% if settings.uppercase_heading %}true{% else %}false{% end
 
 $base-text-font-size   : {{settings.base_text_font_size}}px;
 $default-text-font-size: 14px;
+$massive-heading-font-size: 80px;
 
 $font-family-lato : {{settings.text_font.family}}, {{ settings.text_font.fallback_families }};
 $font-family-lie-to-me : {{settings.text_font.family}}, {{ settings.text_font.fallback_families }};
@@ -12643,7 +12644,7 @@ $newsletter-text-color: {{ settings.newsletter_text_color }};
 }
 
 /*---------------------------------*/
-/*----------- PRODUCT ------------*/
+/*-------- PAGE PRODUIT -----------*/
 /*---------------------------------*/
 
 .ProductContainer{
@@ -12706,18 +12707,17 @@ $newsletter-text-color: {{ settings.newsletter_text_color }};
   color: $ziggy-red;
 }
 
-.engagements__title{
-
-}
-
 .engagements__content{
    max-width: 500px;
    margin: auto;
 }
 
+/*----------------------------------------*/
+/*---------- page ENGAGEMENTS ------------*/
+/*----------------------------------------*/
 
-/*----------- page ENGAGEMENTS ------------*/
 
+/*----------- section text with image ------------*/
 .text_image__subtitle{
   color: $ziggy-red;
   margin-bottom: 15px;
@@ -12759,7 +12759,7 @@ $newsletter-text-color: {{ settings.newsletter_text_color }};
 
 @include av-mq('phone') {
 
-   .Column__Reverse{ 
+   .Column__Reverse{
      display: flex;
      flex-direction: column-reverse;
    }
@@ -12771,4 +12771,57 @@ $newsletter-text-color: {{ settings.newsletter_text_color }};
   .text_image__content{
     padding: 30px 0;
   }
+}
+
+/*----------- section centered ------------*/
+
+.TextCentered__Height{
+  min-height: 300px;
+}
+
+.TextCentered__title{
+   font-size: $massive-heading-font-size;
+}
+.TextCentered__button{
+  margin-top: 30px;
+}
+
+.TextCenteredMiauw{
+   position: absolute;
+   bottom: -5px;
+   right: 15%;
+    img{
+      max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+  .TextCenteredMiauw{
+     right: 3%; 
+  }
+}
+
+@include av-mq('phone') {
+
+  .TextCentered__Height{
+    min-height: 550px;
+  }
+
+  .TextCentered__title{
+     max-width: 200px;
+     margin: auto;
+  }
+
+  .TextCentered__content{
+    position: absolute;
+    top: 40px;
+  }
+
+  .TextCenteredMiauw{
+    right: 50%;
+    transform: translateX(50%);
+       img{
+          max-width: 220px;
+       }
+   }
 }
